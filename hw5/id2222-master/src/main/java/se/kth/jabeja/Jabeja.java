@@ -50,10 +50,19 @@ public class Jabeja {
    */
   private void saCoolDown(){
     // TODO for second task
+//    if (T > 1)
+//      T -= config.getDelta();
+//    if (T < 1)
+//      T = 1;
+    // for comparison, use a new approach: multiply by alpha
     if (T > 1)
-      T -= config.getDelta();
-    if (T < 1)
-      T = 1;
+        T = T * (1- config.getDelta());
+      if (T < 0.001)
+        T = (float) 0.001;
+      
+   //for exercise 2.2: Reset the value to original value
+      if (this.round > 400)
+    	  T = 1; // only for new funciton
   }
 
   /**
@@ -96,7 +105,7 @@ public class Jabeja {
     	nodep.setColor(c1);
     	this.numberOfSwaps++;
     }
-    // set new T based on delta is done in function saCoolDown. Therfor not here.
+    // set new T based on delta is done in function saCoolDown after every node had its turn.
     
     
   }
