@@ -33,7 +33,23 @@ public class Jabeja {
 
   //-------------------------------------------------------------------
   public void startJabeja() throws IOException {
+	  //for Bonus task: abort when long time no change
+//	  int oldNumberSwaps = 0;
+//	  int stagnationCounter = 0;
+	  //end of change for bonus task
     for (round = 0; round < config.getRounds(); round++) {
+    	//for Bonus tasks: abort when long time no change
+//      if (this.numberOfSwaps != oldNumberSwaps){
+//    	oldNumberSwaps = this.numberOfSwaps;
+//    	stagnationCounter = 0;
+//      }else{
+//    	  stagnationCounter++;
+//    	  if (stagnationCounter == 10){ //should be a parameter and adapted acc. to graph.
+//    		  break;
+//    	  }
+//      }
+      //end of change for Bonus task
+      
       for (int id : entireGraph.keySet()) {
         sampleAndSwap(id);
       }
@@ -61,8 +77,8 @@ public class Jabeja {
         T = (float) 0.001;
       
    //for exercise 2.2: Reset the value to original value
-      if (this.round > 400)
-    	  T = 1; // only for new funciton
+//      if (this.round > 400)
+//    	  T = config.getTemperature();
   }
 
   /**
